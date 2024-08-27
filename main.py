@@ -223,8 +223,9 @@ def program_END(int):  # 正常结束程序
         window = tkinter.Tk()
         window.withdraw()  # 退出默认 tk 窗口
 
-        result = askretrycancel('确定 | 取消', '程序非正常退出，是否联系本苗呢？')
-        if result == "确定":
+        result = messagebox.askokcancel(title="错误", message='程序非正常退出，是否联系本苗呢？')
+        print(result)
+        if result == True:
             webbrowser.open("https://xiaomiao-ica.top")
 
     print(f"{Fore.CYAN}10秒后程序将退出")
@@ -257,7 +258,7 @@ if __name__ == '__main__':
     PC_release = platform.release()
     PC_version = platform.version()
 
-
+    program_END(2)
     # 取进程信息
     Gamepid, Gamepath = None, None
 
