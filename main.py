@@ -22,6 +22,7 @@ from urllib3.util.retry import Retry
 from colorama import Fore
 import tkinter
 from tkinter.messagebox import *
+import re
 
 # 初始化 colorama
 colorama.init()
@@ -219,6 +220,10 @@ def is_url_accessible(url):
 
 # 正常结束程序
 def program_END(int):  # 正常结束程序
+    #上传日志
+    #terminal_output = get_terminal_output()
+    #send_data_to_server(terminal_output)
+
     if int != 0 :
         window = tkinter.Tk()
         window.withdraw()  # 退出默认 tk 窗口
@@ -249,6 +254,34 @@ def remove_empty_lines_from_string(text):  #删空行
     # 将非空行重新组合成一个字符串
     return "\n".join(non_empty_lines)
 
+#检测文本中文
+def contains_chinese(text):
+    # 使用正则表达式匹配中文字符的范围
+    pattern = re.compile(r'[\u4e00-\u9fff\u3040-\u30ff\u31f0-\u31ff\u3400-\u4dbf\uac00-\ud7af]')
+    return bool(pattern.search(text))
+
+#获取命令行全部文本
+def get_terminal_output():
+    # 获取终端命令的全部输出，例如使用 'dmesg' 或者其他终端命令
+    command = "dmesg"  # 你可以替换为你需要的命令
+    result = subprocess.run(command, shell=True, capture_output=True, text=True)
+
+    return result.stdout
+
+#上传日志
+def send_data_to_server(data):
+    url = 'https://api.xiaomiao-ica.top/AIC/log/exe/index.php'
+    payload = {'terminal_output': data}
+
+    try:
+        response = requests.post(url, data=payload)
+        if response.status_code == 200:
+            print(f"{Fore.GREEN}日志数据成功上传！")
+        else:
+            print(f"{Fore.RED}发送数据失败。状态码： {response.status_code}")
+    except Exception as e:
+        print(f"{Fore.RED}发送数据时出错：{e}")
+
 
 if __name__ == '__main__':
     root = tk.Tk()
@@ -258,15 +291,17 @@ if __name__ == '__main__':
     PC_release = platform.release()
     PC_version = platform.version()
 
-    program_END(2)
     # 取进程信息
     Gamepid, Gamepath = None, None
-
+    pidI=9
     while Gamepid is None or Gamepath is None:
         Gamepid, Gamepath = get_process_info("AliceInCradle.exe")
         if Gamepid is None or Gamepath is None:
-            print(f"{Fore.RED}请现在开启游戏！！！")
-            time.sleep(3)
+            pidI=pidI+1
+            if pidI==10:
+                pidI =0
+                print(f"{Fore.RED}请现在开启游戏！！！")
+            time.sleep(1)
 
     if Gamepid and Gamepath:
         print(f"{Fore.GREEN}游戏PID PID: {Gamepid}")
@@ -276,6 +311,12 @@ if __name__ == '__main__':
         print(f"{Fore.RED}没有找到游戏！")
         program_END(3)
         messagebox.showerror("欧尼酱~出错啦~","没有找到你的游戏信息，这是不寻常的问题，可以尝试联系本苗。\n记得一定要带上控制台的截图，要不本苗也帮助不你了~")
+
+    if contains_chinese(Gamepath):
+        print(f"{Fore.RED}你的游戏路径有中文！BepEx不可有中文路径！ 路径：{Gamepath}")
+        messagebox.showerror("欧尼酱~出错啦~",
+                             f"你的游戏目录有中文，请将游戏目录移动到没有中文日文韩文等特殊文字的目录。\n当前目录{Gamepath}")
+        program_END(9)
 
     def get_user_input():
         while True:
