@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d60504-e777-494b-b020-5efe1fbc840f" name="更改" comment="主程序">
-      <change afterPath="$PROJECT_DIR$/dist/main.exe" afterDir="false" />
+    <list default="true" id="b2d60504-e777-494b-b020-5efe1fbc840f" name="更改" comment="更新&#10;1.日志上传&#10;2.哈希值MD5动态验证&#10;3.获取设备信息&#10;4.一些小问题">
+      <change afterPath="$PROJECT_DIR$/dist/AliceInCradle_Mod_install_1.3.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/main/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/Analysis-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/main/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/EXE-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/main/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/PKG-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/main/main.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/main.pkg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/main/warn-main.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/warn-main.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/main/xref-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/xref-main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/main.exe" beforeDir="false" afterPath="$PROJECT_DIR$/dist/AliceInCradle_Mod_install_1.2.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,13 +127,42 @@
       <option name="project" value="LOCAL" />
       <updated>1724763200710</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="更新&#10;1.中文目录检测&#10;2.日志上传（未实装）">
+      <option name="closed" value="true" />
+      <created>1726236981182</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1726236981182</updated>
+    </task>
+    <task id="LOCAL-00004" summary="更新&#10;1.日志上传&#10;2.哈希值MD5动态验证&#10;3.获取设备信息&#10;4.一些小问题">
+      <option name="closed" value="true" />
+      <created>1726490625076</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1726490625076</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="AliceInCradle_Mod_install" />
     <MESSAGE value="主程序" />
-    <option name="LAST_COMMIT_MESSAGE" value="主程序" />
+    <MESSAGE value="更新&#10;1.中文目录检测&#10;2.日志上传（未实装）" />
+    <MESSAGE value="更新&#10;1.日志上传&#10;2.哈希值MD5动态验证&#10;3.获取设备信息&#10;4.一些小问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新&#10;1.日志上传&#10;2.哈希值MD5动态验证&#10;3.获取设备信息&#10;4.一些小问题" />
   </component>
 </project>
