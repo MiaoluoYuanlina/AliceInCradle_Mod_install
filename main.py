@@ -46,6 +46,7 @@ BRIGHT: 明亮
 RESET_ALL: 重置所有样式
 """
 
+
 # 日志
 Log_M = ""
 def print_log(text):
@@ -285,10 +286,37 @@ def get_system_info():
         'Network Info': net_info
     }
 
+#获取一个编号
+def gitID(type: int) -> str:
+    BASE_URL = "https://api.xiaomiao-ica.top/AIC/log/exe/"
+
+    if type == 0:
+        url = f"{BASE_URL}ID_normalcy/?gain="
+    else:
+        url = f"{BASE_URL}ID_error/?gain="
+
+    max_attempts = 3
+    for attempt in range(max_attempts):
+        try:
+            response = requests.get(url, verify=False)  # 忽略 SSL 验证
+            response.raise_for_status()
+            return response.text
+        except requests.RequestException as e:
+            print(f"尝试 {attempt + 1} 失败: {e}")  # 打印错误信息以供调试
+            if attempt < max_attempts - 1:
+                continue  # 尝试下一次
+            return f"请求出错: {e}，已重试 {max_attempts} 次。"
+
 # 正常结束程序
 def program_END(intdata):  # 正常结束程序
     #上传日志
     system_info = get_system_info()
+    ID1=gitID(intdata)
+    print_log(f"{Fore.MAGENTA}")
+    print_log(f"程序为你在本次运行分配的ID：{ID1}")
+    print_log(f"出现问题时，可以把这段ID复制下来发给本苗(程序作者)，本苗会帮助你解决问题！")
+    print_log(f"")
+    print_log(f"{Fore.RESET}")
     print_log("————————————————————————————————————————————————————————————————————————————————————————")
     print_log(f"系统信息:")
     # 打印系统信息
@@ -303,9 +331,7 @@ def program_END(intdata):  # 正常结束程序
         window = tkinter.Tk()
         window.withdraw()  # 退出默认 tk 窗口
 
-
-
-        result = messagebox.askokcancel(title="错误", message='程序非正常退出，是否联系本苗呢？')
+        result = messagebox.askokcancel(title="欧尼酱~有一件问题想要问您~", message=f'程序非正常退出，是否联系本苗呢？\n\n为你分配的错误编号:{ID1}\n可以把这个编号发给本苗，本苗会帮助你！')
         print_log(result)
         if result == True:
             webbrowser.open("https://xiaomiao-ica.top")
@@ -314,7 +340,7 @@ def program_END(intdata):  # 正常结束程序
     time.sleep(10)
     sys.exit(intdata)
 
- # 调用微软商店
+# 调用微软商店
 def open_microsoft_store(app_name):
     url = f"ms-windows-store://pdp/?productid={app_name}"
     webbrowser.open(url)
@@ -341,11 +367,9 @@ def contains_chinese(text):
     return bool(pattern.search(text))
 
 #上传日志
-def send_data_to_server(text,data):
+def send_data_to_server(text, data):
     # 定义要发送的文本和数据
     url = 'https://api.xiaomiao-ica.top/AIC/log/exe/index.php'  # 替换为实际的PHP文件URL
-    text = text
-    data = data
 
     # 构造POST请求的数据
     payload = {
@@ -353,12 +377,13 @@ def send_data_to_server(text,data):
         'data': data
     }
 
-    # 发送POST请求到PHP服务器
-    response = requests.post(url, data=payload)
-
-    # 输出服务器响应内容
-    print(f"{Fore.CYAN}response.text")
-
+    # 发送POST请求到PHP服务器，忽略SSL验证
+    try:
+        response = requests.post(url, data=payload, verify=False)
+        # 输出服务器响应内容
+        print(f"{Fore.CYAN}{response.text}")
+    except requests.RequestException as e:
+        print(f"{Fore.RED}请求出错: {e}")
 
 #获取文件哈希值
 def file_hash(file_path: str, hash_method) -> str:
@@ -396,6 +421,7 @@ def str_sha1(content: str, encoding: str = 'UTF-8') -> str:
     return str_hash(content, hashlib.sha1, encoding)
 def str_sha224(content: str, encoding: str = 'UTF-8') -> str:
     return str_hash(content, hashlib.sha224, encoding)
+
 
 
 if __name__ == '__main__':
@@ -579,6 +605,7 @@ if __name__ == '__main__':
             program_END(6)
     else:
         Mod_url = f"https://api.xiaomiao-ica.top/agent/?fileUrl={Mod_url}"
+
 
     # 下载mod
     create_directory(fr"{os.path.dirname(Gamepath)}\BepInEx\plugins\XiaoMiao_ICa")#创建目录
