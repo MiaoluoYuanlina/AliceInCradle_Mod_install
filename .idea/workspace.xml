@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d60504-e777-494b-b020-5efe1fbc840f" name="更改" comment="更新&#10;1.日志上传&#10;2.哈希值MD5动态验证&#10;3.获取设备信息&#10;4.一些小问题">
-      <change afterPath="$PROJECT_DIR$/dist/AliceInCradle_Mod_install_1.2.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/AliceInCradle_Mod_install_1.3.exe" afterDir="false" />
+    <list default="true" id="b2d60504-e777-494b-b020-5efe1fbc840f" name="更改" comment="2024.9.16更新内容:&#10;1.日志上传&#10;2.哈希值MD5动态验证&#10;3.获取设备信息&#10;4.一些小问题&#10;&#10;2024.10.26更新内容:&#10;1.为更新的日志从网络上获取一个编号">
+      <change afterPath="$PROJECT_DIR$/dist/AliceInCradle_Mod_install_1.5.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/main/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/Analysis-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/main/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/EXE-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/main/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/PKG-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/main/main.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/main.pkg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/main/warn-main.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/warn-main.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/main.exe" beforeDir="false" afterPath="$PROJECT_DIR$/dist/main.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/main/xref-main.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/main/xref-main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726490763535</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="2024.9.16更新内容:&#10;1.日志上传&#10;2.哈希值MD5动态验证&#10;3.获取设备信息&#10;4.一些小问题&#10;&#10;2024.10.26更新内容:&#10;1.为更新的日志从网络上获取一个编号">
+      <option name="closed" value="true" />
+      <created>1729953527722</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1729953527722</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -173,6 +180,7 @@
     <MESSAGE value="主程序" />
     <MESSAGE value="更新&#10;1.中文目录检测&#10;2.日志上传（未实装）" />
     <MESSAGE value="更新&#10;1.日志上传&#10;2.哈希值MD5动态验证&#10;3.获取设备信息&#10;4.一些小问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新&#10;1.日志上传&#10;2.哈希值MD5动态验证&#10;3.获取设备信息&#10;4.一些小问题" />
+    <MESSAGE value="2024.9.16更新内容:&#10;1.日志上传&#10;2.哈希值MD5动态验证&#10;3.获取设备信息&#10;4.一些小问题&#10;&#10;2024.10.26更新内容:&#10;1.为更新的日志从网络上获取一个编号" />
+    <option name="LAST_COMMIT_MESSAGE" value="2024.9.16更新内容:&#10;1.日志上传&#10;2.哈希值MD5动态验证&#10;3.获取设备信息&#10;4.一些小问题&#10;&#10;2024.10.26更新内容:&#10;1.为更新的日志从网络上获取一个编号" />
   </component>
 </project>

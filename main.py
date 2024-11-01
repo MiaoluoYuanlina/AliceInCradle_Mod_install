@@ -476,8 +476,8 @@ if __name__ == '__main__':
     print_log(f"你输入了：{result}")
     download_url_1 = "https://builds.bepinex.dev/projects/bepinex_be/571/BepInEx_UnityMono_x64_3a54f7e_6.0.0-be.571.zip"
     HaXiMD5_BepEx = "d42de011d504ea560cbb940318403489"
-    download_url_2 = "https://github.xiaomiao-ica.top/AIC/Mod/Latest_version_URL.txt"
-    HaXiMD5_Mod_url = "https://github.xiaomiao-ica.top/AIC/Mod/MD5.txt"
+    download_url_2 = "http://miaoluoyuanlina.github.io/AIC/Mod/Latest_version_URL.txt"
+    HaXiMD5_Mod_url = "https://api.xiaomiao-ica.top/AIC/MD5_MOD/index.php"
     Download_method = 1
     if (result == 1):
         # 尝试访问 github
@@ -532,29 +532,28 @@ if __name__ == '__main__':
         #https://api.xiaomiao-ica.top/AIC/file/AliceInCradle_Miaoo_Mod_1.1.dll
         download_url_1 = f"https://api.xiaomiao-ica.top/agent/?fileUrl={download_url_1}"
         download_url_2 = f"https://api.xiaomiao-ica.top/agent/?fileUrl={download_url_2}"
-        HaXiMD5_Mod_url = f"https://api.xiaomiao-ica.top/agent/?fileUrl={HaXiMD5_Mod_url}"
-        # 尝试访问 api.xiaomiao-ica.top
-        status_code = is_url_accessible(download_url_1)
-        if status_code == 200:
-            print_log(f"{Fore.GREEN}成功访问 本苗自建站点 官网！")
-        elif status_code == 201:
-            print_log(f"{Fore.GREEN}成功访问 本苗自建站点 官网！")
-        elif status_code == 202:
-            print_log(f"{Fore.YELLOW}成功访问 本苗自建站点 官网但是未能返回正确的值。")
-        elif status_code == 200:
-            print_log(f"{Fore.YELLOW}成功访问 本苗自建站点 官网但是未能返回正确的值。")
-        elif status_code == 200:
-            print_log(f"{Fore.YELLOW}成功访问 本苗自建站点 官网但是未能返回正确的值。")
-        elif status_code == 403:
-            print_log(f"{Fore.YELLOW}成功访问 本苗自建站点 官网但是未能返回正确的值，你的访问被拒绝你可能无法正常下载。")
-        else:
-            print_log(f"{Fore.RED}无法访问 本苗自建站点 官网！")
-
-            messagebox.showerror("欧尼酱~出错啦~","你可以尝试更改DNS")
-            program_END(2)
 
     else:
         sys.exit(-1)
+
+    # 尝试访问 api.xiaomiao-ica.top
+    status_code = is_url_accessible(download_url_1)
+    if status_code == 200:
+        print_log(f"{Fore.GREEN}成功访问 本苗自建站点 官网！")
+    elif status_code == 201:
+        print_log(f"{Fore.GREEN}成功访问 本苗自建站点 官网！")
+    elif status_code == 202:
+        print_log(f"{Fore.YELLOW}成功访问 本苗自建站点 官网但是未能返回正确的值。")
+    elif status_code == 200:
+        print_log(f"{Fore.YELLOW}成功访问 本苗自建站点 官网但是未能返回正确的值。")
+    elif status_code == 200:
+        print_log(f"{Fore.YELLOW}成功访问 本苗自建站点 官网但是未能返回正确的值。")
+    elif status_code == 403:
+        print_log(f"{Fore.YELLOW}成功访问 本苗自建站点 官网但是未能返回正确的值，你的访问被拒绝你可能无法正常下载。")
+    else:
+        print_log(f"{Fore.RED}无法访问 本苗自建站点 官网！")
+        messagebox.showerror("欧尼酱~出错啦~", "你可以尝试更改DNS")
+        program_END(2)
 
 
     # 下载 BepInEx
@@ -591,6 +590,7 @@ if __name__ == '__main__':
     Mod_url = read_text_from_url(download_url_2)#动态获取地址
     Mod_url = remove_empty_lines_from_string(Mod_url)#去空行
     print_log(f"使用域名{urlparse(Mod_url).netloc}")
+    #print(Mod_url)
     if urlparse(Mod_url).netloc == "github.com" and result == 1:
         # 解析github链接
         print_log(f"正在尝试解析github下载地址:{Mod_url}")
